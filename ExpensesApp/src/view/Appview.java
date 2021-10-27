@@ -8,7 +8,12 @@ import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 import javax.swing.WindowConstants;
 
-public class Appview {
+public class Appview extends JFrame{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	public Appview() {
 		/* FRAME */
@@ -28,16 +33,22 @@ public class Appview {
 		
 		/* HOME MENU */
 		JMenuBar bar = new JMenuBar();
+		homePanel.setLayout(null);
+		bar.setBounds(15, 10, 50, 50);
 		JMenu menu = new JMenu("+");
-		JMenuItem size = new JMenuItem("New Expenses");
+		JMenuItem newExpense = new JMenuItem("New Expense");
+		JMenuItem history = new JMenuItem("History");
+		JMenuItem settings = new JMenuItem("Settings");
 			
 		/* ADD COMPONENTS */
 		tab.add(homePanel, "Home"); 
-		tab.add(historyPanel, "History");
-		tab.add(settingsPanel, "Settings");
+		//tab.add(historyPanel, "History");
+		//tab.add(settingsPanel, "Settings");
 		tab.add(aboutPanal, "About");
 		
-		menu.add(size);
+		menu.add(newExpense);
+		menu.add(history);
+		menu.add(settings);
 		homePanel.add(bar);
 		bar.add(menu);
 		
