@@ -1,6 +1,9 @@
 package view;
 
+import javax.swing.GroupLayout;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
@@ -15,6 +18,7 @@ public class Appview extends JFrame{
 	 */
 	private static final long serialVersionUID = 1L;
 
+	@SuppressWarnings("unused")
 	public Appview() {
 		/* FRAME */
 		JFrame frame = new JFrame();
@@ -31,14 +35,31 @@ public class Appview extends JFrame{
 		JPanel settingsPanel = new JPanel();
 		JPanel aboutPanal = new JPanel();
 		
+		
+		
 		/* HOME MENU */
 		JMenuBar bar = new JMenuBar();
 		homePanel.setLayout(null);
 		bar.setBounds(15, 10, 50, 50);
-		JMenu menu = new JMenu("+");
+		JMenu menu = new JMenu("Menu");
+		//ImageIcon icon = new ImageIcon(addUrl);
 		JMenuItem newExpense = new JMenuItem("New Expense");
 		JMenuItem history = new JMenuItem("History");
 		JMenuItem settings = new JMenuItem("Settings");
+		
+		/* ICONS */
+		String addUrl = "icons/add.png";
+		GroupLayout layout = new GroupLayout(bar);
+		layout.setAutoCreateGaps(true);
+		layout.setAutoCreateContainerGaps(true);
+		JLabel img = new JLabel(new ImageIcon(getClass().getClassLoader().getResource(addUrl)));
+		img.setBounds(100, 200, 200, 200);
+
+		GroupLayout.SequentialGroup group = layout.createSequentialGroup();
+		group.addGroup(layout.createParallelGroup().addComponent(img));
+		layout.setVerticalGroup(group);
+		
+		//bar.add(img);
 			
 		/* ADD COMPONENTS */
 		tab.add(homePanel, "Home"); 
