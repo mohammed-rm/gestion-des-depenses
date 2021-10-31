@@ -88,9 +88,10 @@ public class App extends JFrame {
 		menu.add(labLogo);
 		
 		JLabel labHome = new JLabel("Home");
+		labHome.setIcon(getScaledImage(new ImageIcon(App.class.getResource("/icons/home.png")), 60,60));
 		labHome.setHorizontalAlignment(SwingConstants.LEFT);
-		labHome.setFont(new Font("Baskerville Old Face", Font.BOLD, 18));
-		labHome.setBounds(30, 140, 120, 20);
+		labHome.setFont(new Font("Baskerville Old Face", Font.BOLD, 16));
+		labHome.setBounds(0, 140, 120, 20);
 		labHome.addMouseListener(new MouseAdapter(){
 		    @Override
 		    public void mouseEntered(MouseEvent e) {
@@ -103,10 +104,11 @@ public class App extends JFrame {
 		});
 		menu.add(labHome);
 		
-		JLabel labNewExpense = new JLabel("New Expense");
+		JLabel labNewExpense = new JLabel("New");
+		labNewExpense.setIcon(getScaledImage(new ImageIcon(App.class.getResource("/icons/add.png")), 60,60));
 		labNewExpense.setHorizontalAlignment(SwingConstants.LEFT);
-		labNewExpense.setFont(new Font("Baskerville Old Face", Font.BOLD, 18));
-		labNewExpense.setBounds(30, 180, 120, 20);
+		labNewExpense.setFont(new Font("Baskerville Old Face", Font.BOLD, 16));
+		labNewExpense.setBounds(0, 180, 120, 20);
 		labNewExpense.addMouseListener(new MouseAdapter(){
 		    @Override
 		    public void mouseEntered(MouseEvent e) {
@@ -120,9 +122,10 @@ public class App extends JFrame {
 		menu.add(labNewExpense);
 		
 		JLabel labHistory = new JLabel("History");
+		labHistory.setIcon(getScaledImage(new ImageIcon(App.class.getResource("/icons/history.png")), 60,60));
 		labHistory.setHorizontalAlignment(SwingConstants.LEFT);
-		labHistory.setFont(new Font("Baskerville Old Face", Font.BOLD, 18));
-		labHistory.setBounds(30, 220, 120, 20);
+		labHistory.setFont(new Font("Baskerville Old Face", Font.BOLD, 16));
+		labHistory.setBounds(0, 220, 120, 20);
 		labHistory.addMouseListener(new MouseAdapter(){
 		    @Override
 		    public void mouseEntered(MouseEvent e) {
@@ -136,9 +139,10 @@ public class App extends JFrame {
 		menu.add(labHistory);
 		
 		JLabel labSettings = new JLabel("Settings");
-		labSettings.setFont(new Font("Baskerville Old Face", Font.BOLD, 18));
+		labSettings.setIcon(getScaledImage(new ImageIcon(App.class.getResource("/icons/settings.png")), 60,60));
+		labSettings.setFont(new Font("Baskerville Old Face", Font.BOLD, 16));
 		labSettings.setHorizontalAlignment(SwingConstants.LEFT);
-		labSettings.setBounds(30, 260, 120, 20);
+		labSettings.setBounds(0, 260, 120, 20);
 		labSettings.addMouseListener(new MouseAdapter(){
 		    @Override
 		    public void mouseEntered(MouseEvent e) {
@@ -152,9 +156,10 @@ public class App extends JFrame {
 		menu.add(labSettings);
 		
 		JLabel labAbout = new JLabel("About");
+		labAbout.setIcon(getScaledImage(new ImageIcon(App.class.getResource("/icons/about.png")), 60,60));
 		labAbout.setHorizontalAlignment(SwingConstants.LEFT);
-		labAbout.setFont(new Font("Baskerville Old Face", Font.BOLD, 18));
-		labAbout.setBounds(30, 300, 120, 20);
+		labAbout.setFont(new Font("Baskerville Old Face", Font.BOLD, 16));
+		labAbout.setBounds(0, 300, 120, 20);
 		labAbout.addMouseListener(new MouseAdapter(){
 		    @Override
 		    public void mouseEntered(MouseEvent e) {
