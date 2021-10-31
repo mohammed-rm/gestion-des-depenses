@@ -36,7 +36,7 @@ public class Menu extends JPanel {
 		Graphics2D graph2D = (Graphics2D) grphcs;
 		graph2D.setColor(getBackground());
 		graph2D.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-		GradientPaint gradPaint = new GradientPaint(0, 0, Color.decode("#16bffd"), 0, getHeight(), Color.decode("#cb3066"));
+		GradientPaint gradPaint = new GradientPaint(0, 0, Color.decode("#00223E"), 0, getHeight(), Color.decode("#FFA17F"));
 		graph2D.setPaint(gradPaint);
 		graph2D.fillRoundRect(0, 0, getWidth(), getHeight(), 30, 30);
 		graph2D.fillRect(getWidth() - 25, 0, getWidth(), getHeight()); // Top right edge

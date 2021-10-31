@@ -19,7 +19,7 @@ public class Panel extends JPanel {
 		Graphics2D g2 = (Graphics2D) grphcs;
 		g2.setColor(getBackground());
 		g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-		GradientPaint gradPaint = new GradientPaint(0, 0, Color.decode("#4da0b0"), 0, getHeight(), Color.decode("#d39d38"));
+		GradientPaint gradPaint = new GradientPaint(0, 0, Color.decode("#0b8793"), 0, getHeight(), Color.decode("#360033"));
 		g2.setPaint(gradPaint);
 		g2.fillRoundRect(0, 0, getWidth(), getHeight(), 30, 30);
 		super.paintComponent(grphcs);
