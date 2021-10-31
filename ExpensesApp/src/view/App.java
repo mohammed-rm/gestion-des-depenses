@@ -58,6 +58,10 @@ public class App extends JFrame {
 		panel.add(menu);
 		panel.add(bottom);
 		
+		JLabel labClose = new JLabel();
+		labClose.setIcon(new ImageIcon(App.class.getResource("/icons/close.png")));
+		labClose.setBounds(760, 0, 40, 40);
+		panel.add(labClose);
 		
 		frame.pack();
 		frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -75,5 +79,4 @@ public class App extends JFrame {
 	    ImageIcon res = new ImageIcon(resizedImg);
 	    return res;
 	}
-
 }
