@@ -94,8 +94,6 @@ public class App extends JFrame {
 		labClose.setHorizontalAlignment(SwingConstants.LEFT);
 		labClose.setIcon(getScaledImage(new ImageIcon(App.class.getResource("/icons/close.png")), 40,40));
 		labClose.setBounds(765, 0, 30, 30);
-		
-		
 		/* ACTION */
 		labClose.addMouseListener(new MouseAdapter() 
 		{
@@ -116,8 +114,24 @@ public class App extends JFrame {
 				labClose.setBounds(765, 0, 30, 30);
 			}
 		});
-		/* ********* */ 
 		
+		JLabel labMin = new JLabel("");
+		labMin.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+			}
+			@Override
+			public void mouseEntered(MouseEvent e) {
+			}
+			@Override
+			public void mouseExited(MouseEvent e) {
+			}
+		});
+		labMin.setIcon(new ImageIcon(App.class.getResource("/icons/minimize.png")));
+		labMin.setBounds(745, 0, 30, 30);
+		
+		/* ********* */ 
+		panel.add(labMin);
 		panel.add(labClose);
 		menu.setLayout(null);
 		
@@ -216,6 +230,8 @@ public class App extends JFrame {
 		    }
 		});
 		menu.add(labAbout);
+		
+		
 		
 		//frame.update(getGraphics());
 		frame.pack();
