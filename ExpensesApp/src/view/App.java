@@ -82,16 +82,17 @@ public class App extends JFrame {
 		menu.setLayout(null);
 		
 		JLabel labLogo = new JLabel();
-		labLogo.setIcon(getScaledImage(new ImageIcon(App.class.getResource("/icons/logo.png")), 180,180));
-		labLogo.setBounds(5, -40, 180, 180);
+		labLogo.setIcon(getScaledImage(new ImageIcon(App.class.getResource("/icons/logo.png")), 200,190));
+		labLogo.setBounds(-5, -40, 200, 190);
 		menu.add(labLogo);
 		menu.add(labLogo);
 		
 		JLabel labHome = new JLabel("Home");
 		labHome.setIcon(getScaledImage(new ImageIcon(App.class.getResource("/icons/home.png")), 60,60));
 		labHome.setHorizontalAlignment(SwingConstants.LEFT);
-		labHome.setFont(new Font("Baskerville Old Face", Font.BOLD, 16));
-		labHome.setBounds(0, 140, 120, 20);
+		labHome.setVerticalAlignment(SwingConstants.BOTTOM);
+		labHome.setFont(new Font("Baskerville Old Face", Font.PLAIN, 18));
+		labHome.setBounds(0, 140, 120, 60);
 		labHome.addMouseListener(new MouseAdapter(){
 		    @Override
 		    public void mouseEntered(MouseEvent e) {
@@ -107,8 +108,9 @@ public class App extends JFrame {
 		JLabel labNewExpense = new JLabel("New");
 		labNewExpense.setIcon(getScaledImage(new ImageIcon(App.class.getResource("/icons/add.png")), 60,60));
 		labNewExpense.setHorizontalAlignment(SwingConstants.LEFT);
-		labNewExpense.setFont(new Font("Baskerville Old Face", Font.BOLD, 16));
-		labNewExpense.setBounds(0, 180, 120, 20);
+		labNewExpense.setVerticalAlignment(SwingConstants.BOTTOM);
+		labNewExpense.setFont(new Font("Baskerville Old Face", Font.PLAIN, 18));
+		labNewExpense.setBounds(0, 180, 120, 60);
 		labNewExpense.addMouseListener(new MouseAdapter(){
 		    @Override
 		    public void mouseEntered(MouseEvent e) {
@@ -124,8 +126,9 @@ public class App extends JFrame {
 		JLabel labHistory = new JLabel("History");
 		labHistory.setIcon(getScaledImage(new ImageIcon(App.class.getResource("/icons/history.png")), 60,60));
 		labHistory.setHorizontalAlignment(SwingConstants.LEFT);
-		labHistory.setFont(new Font("Baskerville Old Face", Font.BOLD, 16));
-		labHistory.setBounds(0, 220, 120, 20);
+		labHistory.setVerticalAlignment(SwingConstants.BOTTOM);
+		labHistory.setFont(new Font("Baskerville Old Face", Font.PLAIN, 18));
+		labHistory.setBounds(0, 220, 120, 60);
 		labHistory.addMouseListener(new MouseAdapter(){
 		    @Override
 		    public void mouseEntered(MouseEvent e) {
@@ -140,9 +143,10 @@ public class App extends JFrame {
 		
 		JLabel labSettings = new JLabel("Settings");
 		labSettings.setIcon(getScaledImage(new ImageIcon(App.class.getResource("/icons/settings.png")), 60,60));
-		labSettings.setFont(new Font("Baskerville Old Face", Font.BOLD, 16));
+		labSettings.setFont(new Font("Baskerville Old Face", Font.PLAIN, 18));
 		labSettings.setHorizontalAlignment(SwingConstants.LEFT);
-		labSettings.setBounds(0, 260, 120, 20);
+		labSettings.setVerticalAlignment(SwingConstants.BOTTOM);
+		labSettings.setBounds(0, 260, 120, 60);
 		labSettings.addMouseListener(new MouseAdapter(){
 		    @Override
 		    public void mouseEntered(MouseEvent e) {
@@ -158,8 +162,9 @@ public class App extends JFrame {
 		JLabel labAbout = new JLabel("About");
 		labAbout.setIcon(getScaledImage(new ImageIcon(App.class.getResource("/icons/about.png")), 60,60));
 		labAbout.setHorizontalAlignment(SwingConstants.LEFT);
-		labAbout.setFont(new Font("Baskerville Old Face", Font.BOLD, 16));
-		labAbout.setBounds(0, 300, 120, 20);
+		labAbout.setVerticalAlignment(SwingConstants.BOTTOM);
+		labAbout.setFont(new Font("Baskerville Old Face", Font.PLAIN, 18));
+		labAbout.setBounds(0, 300, 120, 60);
 		labAbout.addMouseListener(new MouseAdapter(){
 		    @Override
 		    public void mouseEntered(MouseEvent e) {
@@ -182,7 +187,8 @@ public class App extends JFrame {
 	    BufferedImage resizedImg = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
 	    Graphics2D g2 = resizedImg.createGraphics();
 
-	    g2.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
+	    //g2.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
+	    g2.setRenderingHint(RenderingHints.KEY_ALPHA_INTERPOLATION, RenderingHints.VALUE_ALPHA_INTERPOLATION_QUALITY);
 	    g2.drawImage(srcImg.getImage(), 0, 0, width, height, null);
 	    g2.dispose();
 	    
