@@ -91,8 +91,9 @@ public class App extends JFrame {
 		bottom.add(labTime);
 		
 		JLabel labClose = new JLabel();
-		labClose.setIcon(getScaledImage(new ImageIcon(App.class.getResource("/icons/close.png")), 30,30));
-		labClose.setBounds(765, 5, 30, 30);
+		labClose.setHorizontalAlignment(SwingConstants.LEFT);
+		labClose.setIcon(getScaledImage(new ImageIcon(App.class.getResource("/icons/close.png")), 40,40));
+		labClose.setBounds(765, 0, 30, 30);
 		
 		
 		/* ACTION */
@@ -104,6 +105,16 @@ public class App extends JFrame {
 		    	//System.exit(0);
 		    	frame.dispose();
 		    }
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				labClose.setIcon(getScaledImage(new ImageIcon(App.class.getResource("/icons/close_in.png")), 40,40));
+				labClose.setBounds(765, 0, 30, 30);
+			}
+			@Override
+			public void mouseExited(MouseEvent e) {
+				labClose.setIcon(getScaledImage(new ImageIcon(App.class.getResource("/icons/close.png")), 40,40));
+				labClose.setBounds(765, 0, 30, 30);
+			}
 		});
 		/* ********* */ 
 		
