@@ -119,7 +119,7 @@ public class App extends JFrame {
 		labMin.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				// TODO
+				frame.setExtendedState(JFrame.ICONIFIED);
 			}
 			@Override
 			public void mouseEntered(MouseEvent e) {
@@ -236,14 +236,17 @@ public class App extends JFrame {
 		});
 		menu.add(labAbout);
 		
-		
-		
-		//frame.update(getGraphics());
 		frame.pack();
-		frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+		//frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		frame.setVisible(true);
 	}
 	
+	/**
+	 * @param srcImg
+	 * @param width
+	 * @param height
+	 * @return
+	 */
 	private ImageIcon getScaledImage(ImageIcon srcImg, int width, int height){
 	    BufferedImage resizedImg = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
 	    Graphics2D g2 = resizedImg.createGraphics();
