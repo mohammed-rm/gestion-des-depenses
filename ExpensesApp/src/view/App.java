@@ -88,7 +88,7 @@ public class App extends JFrame {
 		menu.add(labLogo);
 		
 		JLabel labHome = new JLabel("Home");
-		labHome.setIcon(getScaledImage(new ImageIcon(App.class.getResource("/icons/home.png")), 60,60));
+		labHome.setIcon(new ImageIcon(App.class.getResource("/icons/home.png")));
 		labHome.setHorizontalAlignment(SwingConstants.LEFT);
 		labHome.setVerticalAlignment(SwingConstants.BOTTOM);
 		labHome.setFont(new Font("Baskerville Old Face", Font.PLAIN, 18));
@@ -106,7 +106,7 @@ public class App extends JFrame {
 		menu.add(labHome);
 		
 		JLabel labNewExpense = new JLabel("New");
-		labNewExpense.setIcon(getScaledImage(new ImageIcon(App.class.getResource("/icons/add.png")), 60,60));
+		labNewExpense.setIcon(new ImageIcon(App.class.getResource("/icons/add.png")));
 		labNewExpense.setHorizontalAlignment(SwingConstants.LEFT);
 		labNewExpense.setVerticalAlignment(SwingConstants.BOTTOM);
 		labNewExpense.setFont(new Font("Baskerville Old Face", Font.PLAIN, 18));
@@ -124,7 +124,7 @@ public class App extends JFrame {
 		menu.add(labNewExpense);
 		
 		JLabel labHistory = new JLabel("History");
-		labHistory.setIcon(getScaledImage(new ImageIcon(App.class.getResource("/icons/history.png")), 60,60));
+		labHistory.setIcon(new ImageIcon(App.class.getResource("/icons/history.png")));
 		labHistory.setHorizontalAlignment(SwingConstants.LEFT);
 		labHistory.setVerticalAlignment(SwingConstants.BOTTOM);
 		labHistory.setFont(new Font("Baskerville Old Face", Font.PLAIN, 18));
@@ -142,7 +142,7 @@ public class App extends JFrame {
 		menu.add(labHistory);
 		
 		JLabel labSettings = new JLabel("Settings");
-		labSettings.setIcon(getScaledImage(new ImageIcon(App.class.getResource("/icons/settings.png")), 60,60));
+		labSettings.setIcon(new ImageIcon(App.class.getResource("/icons/settings.png")));
 		labSettings.setFont(new Font("Baskerville Old Face", Font.PLAIN, 18));
 		labSettings.setHorizontalAlignment(SwingConstants.LEFT);
 		labSettings.setVerticalAlignment(SwingConstants.BOTTOM);
@@ -160,7 +160,7 @@ public class App extends JFrame {
 		menu.add(labSettings);
 		
 		JLabel labAbout = new JLabel("About");
-		labAbout.setIcon(getScaledImage(new ImageIcon(App.class.getResource("/icons/about.png")), 60,60));
+		labAbout.setIcon(new ImageIcon(App.class.getResource("/icons/about.png")));
 		labAbout.setHorizontalAlignment(SwingConstants.LEFT);
 		labAbout.setVerticalAlignment(SwingConstants.BOTTOM);
 		labAbout.setFont(new Font("Baskerville Old Face", Font.PLAIN, 18));
