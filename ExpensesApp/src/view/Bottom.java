@@ -26,7 +26,7 @@ public class Bottom extends JPanel{
         Graphics2D g2 = (Graphics2D) grphcs;
         g2.setColor(getBackground());
         g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-        GradientPaint gradPaint = new GradientPaint(0, 0, Color.decode("#e8cbc0"), 0, getHeight(), Color.decode("#636fa4"));
+        GradientPaint gradPaint = new GradientPaint(0, 0, Color.decode("#111111"), 0, getHeight(), Color.decode("#302b63"));
 		g2.setPaint(gradPaint);
         g2.fillRoundRect(0, 0, getWidth(), getHeight(), 30, 30);
         g2.fillRect(0, 0, getWidth(), 20);

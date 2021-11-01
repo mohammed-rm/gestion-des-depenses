@@ -4,6 +4,8 @@ import javax.swing.*;
 import javax.swing.border.Border;
 
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
 import java.awt.event.ComponentListener;
@@ -11,6 +13,12 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.geom.RoundRectangle2D;
 import java.awt.image.BufferedImage;
+import java.time.Clock;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.ZoneId;
+import java.time.temporal.ChronoUnit;
+import java.util.Date;
 import java.awt.event.MouseMotionAdapter;
 
 @SuppressWarnings("unused")
@@ -60,6 +68,27 @@ public class App extends JFrame {
 		panel.setLayout(null);
 		panel.add(menu);
 		panel.add(bottom);
+		bottom.setLayout(null);
+		
+		JLabel labRights = new JLabel("\u00A9 2021 HopyMed France, All rights reserved.");
+		labRights.setForeground(UIManager.getColor("Button.background"));
+		labRights.setBackground(UIManager.getColor("Button.focus"));
+		labRights.setBounds(10, 15, 260, 15);
+		bottom.add(labRights);
+		
+		JLabel labTime = new JLabel();
+		labTime.setForeground(UIManager.getColor("Button.background"));
+		labTime.setHorizontalAlignment(SwingConstants.RIGHT);
+		labTime.setText(new Date().toString());
+		ActionListener updateClockAction = new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				labTime.setText(new Date().toString());
+			}
+		};
+		Timer t = new Timer(1000, updateClockAction);
+		t.start();
+		labTime.setBounds(460, 15, 330, 15);
+		bottom.add(labTime);
 		
 		JLabel labClose = new JLabel();
 		labClose.setIcon(getScaledImage(new ImageIcon(App.class.getResource("/icons/close.png")), 30,30));
@@ -82,7 +111,7 @@ public class App extends JFrame {
 		menu.setLayout(null);
 		
 		JLabel labLogo = new JLabel();
-		labLogo.setIcon(getScaledImage(new ImageIcon(App.class.getResource("/icons/logo.png")), 200,190));
+		labLogo.setIcon(new ImageIcon(App.class.getResource("/icons/logo.png")));
 		labLogo.setBounds(-5, -40, 200, 190);
 		menu.add(labLogo);
 		menu.add(labLogo);
