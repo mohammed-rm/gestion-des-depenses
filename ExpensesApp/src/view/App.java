@@ -92,7 +92,7 @@ public class App extends JFrame {
 		
 		JLabel labClose = new JLabel();
 		labClose.setHorizontalAlignment(SwingConstants.LEFT);
-		labClose.setIcon(getScaledImage(new ImageIcon(App.class.getResource("/icons/close.png")), 40,40));
+		labClose.setIcon(new ImageIcon(App.class.getResource("/icons/close.png")));
 		labClose.setBounds(765, 0, 30, 30);
 		/* ACTION */
 		labClose.addMouseListener(new MouseAdapter() 
@@ -105,12 +105,12 @@ public class App extends JFrame {
 		    }
 			@Override
 			public void mouseEntered(MouseEvent e) {
-				labClose.setIcon(getScaledImage(new ImageIcon(App.class.getResource("/icons/close_in.png")), 40,40));
+				labClose.setIcon(new ImageIcon(App.class.getResource("/icons/close_in.png")));
 				labClose.setBounds(765, 0, 30, 30);
 			}
 			@Override
 			public void mouseExited(MouseEvent e) {
-				labClose.setIcon(getScaledImage(new ImageIcon(App.class.getResource("/icons/close.png")), 40,40));
+				labClose.setIcon(new ImageIcon(App.class.getResource("/icons/close.png")));
 				labClose.setBounds(765, 0, 30, 30);
 			}
 		});
@@ -119,12 +119,17 @@ public class App extends JFrame {
 		labMin.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				// TODO
 			}
 			@Override
 			public void mouseEntered(MouseEvent e) {
+				labMin.setIcon(new ImageIcon(App.class.getResource("/icons/minimize_in.png")));
+				labMin.setBounds(745, 0, 30, 30);
 			}
 			@Override
 			public void mouseExited(MouseEvent e) {
+				labMin.setIcon(new ImageIcon(App.class.getResource("/icons/minimize.png")));
+				labMin.setBounds(745, 0, 30, 30);
 			}
 		});
 		labMin.setIcon(new ImageIcon(App.class.getResource("/icons/minimize.png")));
