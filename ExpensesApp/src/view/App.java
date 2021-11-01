@@ -28,7 +28,8 @@ public class App extends JFrame {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-
+	private int xMouse;
+	private int yMouse;
 	/**
 	 * Launch the application.
 	 */
@@ -58,6 +59,20 @@ public class App extends JFrame {
 		frame.setLocation(screenSize.width/2 - frame.getPreferredSize().width/2, screenSize.height/2 - frame.getPreferredSize().height/2);
 		
 		Panel panel = new Panel();
+		panel.addMouseMotionListener(new MouseAdapter() {
+			@Override
+			public void mouseDragged(MouseEvent e) {
+				frame.setLocation(frame.getLocation().x + e.getX() - xMouse,frame.getLocation().y + e.getY() - yMouse);
+			}
+		});
+		panel.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent e) {
+				xMouse  = e.getX();
+				yMouse = e.getY();
+			}
+		});
+		
 		Menu menu = new Menu();
 		Bottom bottom = new Bottom();
 		bottom.setSize(800, 40);
