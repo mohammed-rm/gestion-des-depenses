@@ -9,13 +9,11 @@ import java.awt.RenderingHints;
 import javax.swing.JPanel;
 
 public class InternalPanel extends JPanel {
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
 	
 	public InternalPanel() {
-		setOpaque(false);
+		setOpaque(false); // Important
 		new JPanel();
 		setLayout(null);
 	}

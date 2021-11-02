@@ -92,11 +92,9 @@ public class App extends JFrame {
 		menu.setLocation(0, 0);
 		menu.setSize(180, 410);
 		frame.getContentPane().add(panel);
-		panel.setLayout(null);
 		panel.add(menu);
 		panel.add(bottom);
-		bottom.setLayout(null);
-
+		
 		JLabel labRights = new JLabel("\u00A9 2021 HopyMed France, All rights reserved.");
 		labRights.setForeground(UIManager.getColor("Button.background"));
 		labRights.setBackground(UIManager.getColor("Button.focus"));
@@ -201,7 +199,6 @@ public class App extends JFrame {
 		/* ********* */
 		panel.add(labMin);
 		panel.add(labClose);
-		menu.setLayout(null);
 
 		JLabel labLogo = new JLabel();
 		labLogo.setIcon(new ImageIcon(App.class.getResource("/icons/logo.png")));

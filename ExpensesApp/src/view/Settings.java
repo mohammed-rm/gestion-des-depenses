@@ -4,9 +4,7 @@ import java.awt.Component;
 import java.awt.Font;
 
 import javax.swing.JComboBox;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JPanel;
 
 public class Settings extends Component {
 
