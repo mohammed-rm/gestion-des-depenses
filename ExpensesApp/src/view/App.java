@@ -20,6 +20,8 @@ import java.time.ZoneId;
 import java.time.temporal.ChronoUnit;
 import java.util.Date;
 import java.awt.event.MouseMotionAdapter;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 
 @SuppressWarnings("unused")
 public class App extends JFrame {
@@ -107,7 +109,7 @@ public class App extends JFrame {
 		
 		JLabel labClose = new JLabel();
 		labClose.setHorizontalAlignment(SwingConstants.LEFT);
-		labClose.setIcon(new ImageIcon(App.class.getResource("/icons/close.png")));
+		labClose.setIcon(new ImageIcon(App.class.getResource("/icons/close_in.png")));
 		labClose.setBounds(765, 0, 30, 30);
 		/* ACTION */
 		labClose.addMouseListener(new MouseAdapter() 
@@ -120,12 +122,12 @@ public class App extends JFrame {
 		    }
 			@Override
 			public void mouseEntered(MouseEvent e) {
-				labClose.setIcon(new ImageIcon(App.class.getResource("/icons/close_in.png")));
+				labClose.setIcon(new ImageIcon(App.class.getResource("/icons/close.png")));
 				labClose.setBounds(765, 0, 30, 30);
 			}
 			@Override
 			public void mouseExited(MouseEvent e) {
-				labClose.setIcon(new ImageIcon(App.class.getResource("/icons/close.png")));
+				labClose.setIcon(new ImageIcon(App.class.getResource("/icons/close_in.png")));
 				labClose.setBounds(765, 0, 30, 30);
 			}
 		});
@@ -149,6 +151,41 @@ public class App extends JFrame {
 		});
 		labMin.setIcon(new ImageIcon(App.class.getResource("/icons/minimize.png")));
 		labMin.setBounds(745, 0, 30, 30);
+		
+		/** Frame Decof **/
+		frame.addWindowListener((WindowListener) new WindowListener() { 
+		    @Override
+		    public void windowOpened(WindowEvent e) {
+		    } 
+
+		    @Override     
+		    public void windowClosing(WindowEvent e) {
+		    } 
+
+		    @Override 
+		    public void windowClosed(WindowEvent e) {
+		    } 
+
+		    @Override 
+		    public void windowIconified(WindowEvent e) {
+		    } 
+
+		    @Override 
+		    public void windowDeiconified(WindowEvent e) { 
+		    	labMin.setIcon(new ImageIcon(App.class.getResource("/icons/minimize.png")));
+				labMin.setBounds(745, 0, 30, 30);
+		    } 
+
+		    @Override 
+		    public void windowActivated(WindowEvent e) {
+		    } 
+
+		    @Override 
+		    public void windowDeactivated(WindowEvent e) {
+		    	t.start();
+		    } 
+		}); 
+
 		
 		/* ********* */ 
 		panel.add(labMin);
