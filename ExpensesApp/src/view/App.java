@@ -251,6 +251,26 @@ public class App extends JFrame {
 		});
 		menu.add(labAbout);
 		
+		JSeparator separator_1 = new JSeparator();
+		separator_1.setForeground(Color.RED);
+		separator_1.setBounds(20, 190, 140, 1);
+		menu.add(separator_1);
+		
+		JSeparator separator_2 = new JSeparator();
+		separator_2.setForeground(Color.RED);
+		separator_2.setBounds(20, 230, 140, 1);
+		menu.add(separator_2);
+		
+		JSeparator separator_3 = new JSeparator();
+		separator_3.setForeground(Color.RED);
+		separator_3.setBounds(20, 270, 140, 1);
+		menu.add(separator_3);
+		
+		JSeparator separator_4 = new JSeparator();
+		separator_4.setForeground(Color.RED);
+		separator_4.setBounds(20, 310, 140, 1);
+		menu.add(separator_4);
+		
 		frame.pack();
 		//frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		frame.setVisible(true);
