@@ -1,24 +1,33 @@
 package view;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-
 import java.awt.Color;
 import java.awt.GradientPaint;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 
+import javax.swing.JPanel;
+
+/**
+ * @author RMICH Mohammed
+ *
+ */
 public class Menu extends JPanel {
 
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * 
+	 */
 	public Menu() {
 		setOpaque(false);
 		new JPanel();
 		setLayout(null);
 	}
 
+	/**
+	 *
+	 */
 	@Override
 	protected void paintComponent(Graphics grphcs) {
 		Graphics2D graph2D = (Graphics2D) grphcs;

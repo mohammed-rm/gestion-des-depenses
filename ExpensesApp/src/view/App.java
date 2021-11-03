@@ -2,7 +2,6 @@ package view;
 
 import javax.swing.*;
 import javax.swing.border.Border;
-
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -30,34 +29,56 @@ import javax.swing.GroupLayout.Alignment;
 @SuppressWarnings("unused")
 public class App extends JFrame {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
+	private JFrame frame;
+	private Panel panel;
+	private InternalPanel internalPanel;
+	private Menu menu;
+	private Bottom bottom;
+	private JLabel labClose;
+	private JLabel labMin;
+	private JLabel labLogo;
+	private JLabel labHome;
+	private JLabel labNewExpense;
+	private JLabel labHistory;
+	private JLabel labSettings;
+	private JLabel labAbout;
+	private JSeparator separator_1;
+	private JSeparator separator_2;
+	private JSeparator separator_3;
+	private JSeparator separator_4;
 	private int xMouse;
 	private int yMouse;
 
 	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					App frame = new App();
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
-	 * Create the frame.
+	 * Create the window with all components.
 	 */
 	public App() {
 
-		JFrame frame = new JFrame();
+		initFrame();
+		initComponents();
+		iconsConfig();
+		menuConfig();
+		frameListener();
+		panelListener();
+
+		BottomItems itemRights = new BottomItems();
+		bottom.add(itemRights.createLabRights());
+		bottom.add(itemRights.createTime());
+
+		frame.getContentPane().add(panel);
+		panel.add(internalPanel);
+		panel.add(menu);
+		panel.add(bottom);
+		frame.pack();
+		frame.setVisible(true);
+	}
+
+	/**
+	 * Initialize the main frame
+	 */
+	public void initFrame() {
+		frame = new JFrame();
 		frame.setUndecorated(true);
 		frame.setBackground(new Color(0, 0, 0, 0));
 		frame.setPreferredSize(new Dimension(800, 450));
@@ -65,61 +86,35 @@ public class App extends JFrame {
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		frame.setLocation(screenSize.width / 2 - frame.getPreferredSize().width / 2,
 				screenSize.height / 2 - frame.getPreferredSize().height / 2);
+	}
 
-		Panel panel = new Panel();
-		InternalPanel internalPanel = new InternalPanel();
+	/**
+	 * Initialize the frame components
+	 */
+	public void initComponents() {
+		panel = new Panel();
+
+		internalPanel = new InternalPanel();
 		internalPanel.setSize(620, 380);
 		internalPanel.setLocation(180, 30);
 
-		panel.addMouseMotionListener(new MouseAdapter() {
-			@Override
-			public void mouseDragged(MouseEvent e) {
-				frame.setLocation(frame.getLocation().x + e.getX() - xMouse, frame.getLocation().y + e.getY() - yMouse);
-			}
-		});
-		panel.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mousePressed(MouseEvent e) {
-				xMouse = e.getX();
-				yMouse = e.getY();
-			}
-		});
+		menu = new Menu();
+		menu.setSize(180, 410);
+		menu.setLocation(0, 0);
 
-		Menu menu = new Menu();
-		Bottom bottom = new Bottom();
+		bottom = new Bottom();
 		bottom.setSize(800, 40);
 		bottom.setLocation(0, 410);
-		menu.setLocation(0, 0);
-		menu.setSize(180, 410);
-		frame.getContentPane().add(panel);
-		panel.add(menu);
-		panel.add(bottom);
-		
-		JLabel labRights = new JLabel("\u00A9 2021 HopyMed France, All rights reserved.");
-		labRights.setForeground(UIManager.getColor("Button.background"));
-		labRights.setBackground(UIManager.getColor("Button.focus"));
-		labRights.setBounds(10, 15, 260, 15);
-		bottom.add(labRights);
+	}
 
-		JLabel labTime = new JLabel();
-		labTime.setForeground(UIManager.getColor("Button.background"));
-		labTime.setHorizontalAlignment(SwingConstants.RIGHT);
-		labTime.setText(new Date().toString());
-		ActionListener updateClockAction = new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				labTime.setText(new Date().toString());
-			}
-		};
-		Timer t = new Timer(1000, updateClockAction);
-		t.start();
-		labTime.setBounds(460, 15, 330, 15);
-		bottom.add(labTime);
-
-		JLabel labClose = new JLabel();
+	/**
+	 * Close and minimize icons
+	 */
+	public void iconsConfig() {
+		labClose = new JLabel();
 		labClose.setHorizontalAlignment(SwingConstants.LEFT);
 		labClose.setIcon(new ImageIcon(App.class.getResource("/icons/close_in.png")));
 		labClose.setBounds(765, 0, 30, 30);
-		/* ACTION */
 		labClose.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -139,8 +134,11 @@ public class App extends JFrame {
 				labClose.setBounds(765, 0, 30, 30);
 			}
 		});
+		panel.add(labClose);
 
-		JLabel labMin = new JLabel("");
+		labMin = new JLabel();
+		labMin.setIcon(new ImageIcon(App.class.getResource("/icons/minimize.png")));
+		labMin.setBounds(745, 0, 30, 30);
 		labMin.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -159,54 +157,20 @@ public class App extends JFrame {
 				labMin.setBounds(745, 0, 30, 30);
 			}
 		});
-		labMin.setIcon(new ImageIcon(App.class.getResource("/icons/minimize.png")));
-		labMin.setBounds(745, 0, 30, 30);
-
-		/** Frame Decof **/
-		frame.addWindowListener((WindowListener) new WindowListener() {
-			@Override
-			public void windowOpened(WindowEvent e) {
-			}
-
-			@Override
-			public void windowClosing(WindowEvent e) {
-			}
-
-			@Override
-			public void windowClosed(WindowEvent e) {
-			}
-
-			@Override
-			public void windowIconified(WindowEvent e) {
-			}
-
-			@Override
-			public void windowDeiconified(WindowEvent e) {
-				labMin.setIcon(new ImageIcon(App.class.getResource("/icons/minimize.png")));
-				labMin.setBounds(745, 0, 30, 30);
-			}
-
-			@Override
-			public void windowActivated(WindowEvent e) {
-			}
-
-			@Override
-			public void windowDeactivated(WindowEvent e) {
-				t.start();
-			}
-		});
-
-		/* ********* */
 		panel.add(labMin);
-		panel.add(labClose);
+	}
 
-		JLabel labLogo = new JLabel();
+	/**
+	 * Configuration of the menu items
+	 */
+	public void menuConfig() {
+		labLogo = new JLabel();
 		labLogo.setIcon(new ImageIcon(App.class.getResource("/icons/logo.png")));
 		labLogo.setBounds(-5, -40, 200, 190);
 		menu.add(labLogo);
 		menu.add(labLogo);
 
-		JLabel labHome = new JLabel("Home");
+		labHome = new JLabel("Home");
 		labHome.setIcon(new ImageIcon(App.class.getResource("/icons/home.png")));
 		labHome.setHorizontalAlignment(SwingConstants.LEFT);
 		labHome.setVerticalAlignment(SwingConstants.BOTTOM);
@@ -233,7 +197,7 @@ public class App extends JFrame {
 		});
 		menu.add(labHome);
 
-		JLabel labNewExpense = new JLabel("New");
+		labNewExpense = new JLabel("New");
 		labNewExpense.setIcon(new ImageIcon(App.class.getResource("/icons/add.png")));
 		labNewExpense.setHorizontalAlignment(SwingConstants.LEFT);
 		labNewExpense.setVerticalAlignment(SwingConstants.BOTTOM);
@@ -260,7 +224,7 @@ public class App extends JFrame {
 		});
 		menu.add(labNewExpense);
 
-		JLabel labHistory = new JLabel("History");
+		labHistory = new JLabel("History");
 		labHistory.setIcon(new ImageIcon(App.class.getResource("/icons/history.png")));
 		labHistory.setHorizontalAlignment(SwingConstants.LEFT);
 		labHistory.setVerticalAlignment(SwingConstants.BOTTOM);
@@ -287,7 +251,7 @@ public class App extends JFrame {
 		});
 		menu.add(labHistory);
 
-		JLabel labSettings = new JLabel("Settings");
+		labSettings = new JLabel("Settings");
 		labSettings.setIcon(new ImageIcon(App.class.getResource("/icons/settings.png")));
 		labSettings.setFont(new Font("Baskerville Old Face", Font.PLAIN, 18));
 		labSettings.setHorizontalAlignment(SwingConstants.LEFT);
@@ -322,7 +286,7 @@ public class App extends JFrame {
 		});
 		menu.add(labSettings);
 
-		JLabel labAbout = new JLabel("About");
+		labAbout = new JLabel("About");
 		labAbout.setIcon(new ImageIcon(App.class.getResource("/icons/about.png")));
 		labAbout.setHorizontalAlignment(SwingConstants.LEFT);
 		labAbout.setVerticalAlignment(SwingConstants.BOTTOM);
@@ -349,49 +313,81 @@ public class App extends JFrame {
 		});
 		menu.add(labAbout);
 
-		JSeparator separator_1 = new JSeparator();
+		separator_1 = new JSeparator();
 		separator_1.setForeground(Color.RED);
 		separator_1.setBounds(20, 190, 140, 1);
 		menu.add(separator_1);
 
-		JSeparator separator_2 = new JSeparator();
+		separator_2 = new JSeparator();
 		separator_2.setForeground(Color.RED);
 		separator_2.setBounds(20, 230, 140, 1);
 		menu.add(separator_2);
 
-		JSeparator separator_3 = new JSeparator();
+		separator_3 = new JSeparator();
 		separator_3.setForeground(Color.RED);
 		separator_3.setBounds(20, 270, 140, 1);
 		menu.add(separator_3);
 
-		JSeparator separator_4 = new JSeparator();
+		separator_4 = new JSeparator();
 		separator_4.setForeground(Color.RED);
 		separator_4.setBounds(20, 310, 140, 1);
 		menu.add(separator_4);
-
-		panel.add(internalPanel);
-
-		frame.pack();
-		frame.setVisible(true);
 	}
 
 	/**
-	 * @param srcImg
-	 * @param width
-	 * @param height
-	 * @return
+	 * Add listeners to the frame to change back the minimize icon to its original
+	 * state
 	 */
-	private ImageIcon getScaledImage(ImageIcon srcImg, int width, int height) {
-		BufferedImage resizedImg = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
-		Graphics2D g2 = resizedImg.createGraphics();
+	public void frameListener() {
+		frame.addWindowListener((WindowListener) new WindowListener() {
+			@Override
+			public void windowOpened(WindowEvent e) {
+			}
 
-		// g2.setRenderingHint(RenderingHints.KEY_INTERPOLATION,
-		// RenderingHints.VALUE_INTERPOLATION_BILINEAR);
-		g2.setRenderingHint(RenderingHints.KEY_ALPHA_INTERPOLATION, RenderingHints.VALUE_ALPHA_INTERPOLATION_QUALITY);
-		g2.drawImage(srcImg.getImage(), 0, 0, width, height, null);
-		g2.dispose();
+			@Override
+			public void windowClosing(WindowEvent e) {
+			}
 
-		ImageIcon res = new ImageIcon(resizedImg);
-		return res;
+			@Override
+			public void windowClosed(WindowEvent e) {
+			}
+
+			@Override
+			public void windowIconified(WindowEvent e) {
+			}
+
+			@Override
+			public void windowDeiconified(WindowEvent e) {
+				labMin.setIcon(new ImageIcon(App.class.getResource("/icons/minimize.png")));
+				labMin.setBounds(745, 0, 30, 30);
+			}
+
+			@Override
+			public void windowActivated(WindowEvent e) {
+			}
+
+			@Override
+			public void windowDeactivated(WindowEvent e) {
+			}
+		});
+	}
+
+	/**
+	 * Add listeners to move the undecorated frame when the mouse is dragged
+	 */
+	public void panelListener() {
+		panel.addMouseMotionListener(new MouseAdapter() {
+			@Override
+			public void mouseDragged(MouseEvent e) {
+				frame.setLocation(frame.getLocation().x + e.getX() - xMouse, frame.getLocation().y + e.getY() - yMouse);
+			}
+		});
+		panel.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent e) {
+				xMouse = e.getX();
+				yMouse = e.getY();
+			}
+		});
 	}
 }

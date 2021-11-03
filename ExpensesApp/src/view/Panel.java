@@ -8,16 +8,26 @@ import java.awt.RenderingHints;
 
 import javax.swing.JPanel;
 
+/**
+ * @author RMICH Mohammed
+ *
+ */
 public class Panel extends JPanel {
 
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * 
+	 */
 	public Panel() {
 		setOpaque(false);
 		new JPanel();
 		setLayout(null);
 	}
 
+	/**
+	 *
+	 */
 	@Override
 	protected void paintComponent(Graphics grphcs) {
 		Graphics2D g2 = (Graphics2D) grphcs;
