@@ -112,9 +112,9 @@ public class App extends JFrame {
 	 */
 	public void iconsConfig() {
 		labClose = new JLabel();
-		labClose.setHorizontalAlignment(SwingConstants.LEFT);
+		labClose.setHorizontalAlignment(SwingConstants.CENTER);
 		labClose.setIcon(new ImageIcon(App.class.getResource("/icons/close_in.png")));
-		labClose.setBounds(765, 0, 30, 30);
+		labClose.setBounds(770, 0, 20, 30);
 		labClose.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -125,20 +125,21 @@ public class App extends JFrame {
 			@Override
 			public void mouseEntered(MouseEvent e) {
 				labClose.setIcon(new ImageIcon(App.class.getResource("/icons/close.png")));
-				labClose.setBounds(765, 0, 30, 30);
+				labClose.setBounds(770, 0, 20, 30);
 			}
 
 			@Override
 			public void mouseExited(MouseEvent e) {
 				labClose.setIcon(new ImageIcon(App.class.getResource("/icons/close_in.png")));
-				labClose.setBounds(765, 0, 30, 30);
+				labClose.setBounds(770, 0, 20, 30);
 			}
 		});
 		panel.add(labClose);
 
 		labMin = new JLabel();
+		labMin.setHorizontalAlignment(SwingConstants.CENTER);
 		labMin.setIcon(new ImageIcon(App.class.getResource("/icons/minimize.png")));
-		labMin.setBounds(745, 0, 30, 30);
+		labMin.setBounds(740, 0, 20, 30);
 		labMin.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -148,13 +149,13 @@ public class App extends JFrame {
 			@Override
 			public void mouseEntered(MouseEvent e) {
 				labMin.setIcon(new ImageIcon(App.class.getResource("/icons/minimize_in.png")));
-				labMin.setBounds(745, 0, 30, 30);
+				labMin.setBounds(740, 0, 20, 30);
 			}
 
 			@Override
 			public void mouseExited(MouseEvent e) {
 				labMin.setIcon(new ImageIcon(App.class.getResource("/icons/minimize.png")));
-				labMin.setBounds(745, 0, 30, 30);
+				labMin.setBounds(740, 0, 20, 30);
 			}
 		});
 		panel.add(labMin);
@@ -359,7 +360,7 @@ public class App extends JFrame {
 			@Override
 			public void windowDeiconified(WindowEvent e) {
 				labMin.setIcon(new ImageIcon(App.class.getResource("/icons/minimize.png")));
-				labMin.setBounds(745, 0, 30, 30);
+				labMin.setBounds(740, 0, 20, 30);
 			}
 
 			@Override
